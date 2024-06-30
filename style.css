@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.bebas-neue-regular {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    background-color: #F2F2F2;
+}
+
+.main {
+    width: 100%;
+    overflow-x: hidden;
+}
+nav{
+    background-color: #e4e4e4;
+}
+#nav {
+    margin: 0vw 4vw;
+    padding: 0.5vw 5vw;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.509);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.links {
+    display: flex;
+    gap: 4vw;
+}
+
+.links h3 {
+    font-weight: 500;
+    font-size: 1.1vw;
+
+}
+
+.logo {
+    filter: drop-shadow(5px 5px 15px 5px #000000);
+}
+
+.logo img {
+    height: 4vw;
+}
+
+#page1 {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    background-color: #e4e4e4;
+    height: 100vh;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+}
+
+#page1 .text-layer {
+    padding: 3vw;
+    padding-bottom: 0;
+}
+
+.text-layer h1 {
+    font-size: 10vw;
+    line-height: .9;
+    font-family: 'bebas neue';
+}
+
+.text-layer h1:nth-child(1) {
+    color: #EC2028;
+}
+
+.text-layer h1:nth-child(2) {
+    -webkit-text-stroke: 2px #010101;
+    font-weight: 500;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-layer h1:nth-child(3) {
+    color: #16A850;
+}
+
+.pg1-lyrs {
+    width: 20vw;
+    height: 100%;
+}
+
+.pg1-lyrs img {
+    height: 15vw;
+}
+
+#right {
+    overflow: hidden;
+   
+}
+
+#right img {
+    height: 25vw;
+    transform: translate(-7%, 70%) rotate(-20deg);
+}
+
+#left img {
+    transform: translate(-50%, -30%) rotate(-25deg);
+}
+
+#pizza-pan {
+    background: url(./file.png);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#page2 {
+    height: 120vh;
+    width: 100vw;
+    text-align: center;
+    padding-top: 12vw;
+}
+
+#page2 h1 {
+    color: #16A850;
+    font-size: 12vw;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+#page3 {
+    height: 100vh;
+    width: 100vw;
+    background: transparent;
+    text-align: left;
+}
+#page3 #text{
+
+    overflow: hidden;
+    
+    padding: 0 3vw;
+}
+#page3 #pg3-right{
+    padding: 0 10vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#page3 #pg3-right img{
+    height: 30vw;
+    object-fit: cover;
+    width: 30vw;
+    margin-left: 3vw;
+    padding: 1vw;
+    border: 2px dashed #000;
+
+    border-radius: 50%;
+}
+#page3-h1{
+    overflow: hidden;
+}
+#page3 h1 {
+    font-family: "Bebas Neue", sans-serif;
+    color: #16A850;
+    font-size: 12vw;
+}
+#page3 p span{
+    color: #0000006f;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.7vw;
+}
+
+#page4{
+    height: 100vh;
+    width: 500vw;
+    overflow: auto;
+}
+#scroller{
+    height: 100%;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 4vw;
+    justify-content: center;
+}
+#scroller #line{
+    background: #ebebeb;
+    height: .7vw;
+    border-radius: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+}
+#years{
+    /* background: #c200005e; */
+    height: 12vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    transform: translateX(-50%);
+}
+#div2011{
+    height: 3vw;
+    width: 3vw;
+    border-radius: 50%;
+    background: #ebebeb;
+
+}
+#line h2{
+    color: #F2F2F2;
+    font-size: 2vw;
+    font-family: 'Montserrat';
+    
+}
+#line h3{
+    font-family: 'Montserrat';
+    font-size: 1.3vw;
+    background: #e4e4e4;
+    padding: 0.3vw;
+}
+#page5{
+    height: 100vh;
+    background: #000;
+    width: 100vw;
+}
