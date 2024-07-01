@@ -126,12 +126,12 @@ var tl = gsap.timeline({
       start: "top 0%",
       end: "top -50%",
       pin: true,
-      scrub: 2,
+      scrub: .2,
       markers: true,
       onUpdate: function() {
         console.log("Scrolling animation for #page4b updated");
     },
-    onComplete: function() {
+      onComplete: function() {
         console.log("Animation for #page4b completed");
     }
   }
@@ -144,7 +144,7 @@ tl.to("#page3 p>span", {
 })
 
 
-gsap.from("#page4>#scroller h1",{
+tl.from("#page4>#scroller h1",{
   y: 200,
   opacity:0,
   scrollTrigger:{
@@ -155,8 +155,7 @@ gsap.from("#page4>#scroller h1",{
       trigger:"#page4",
       scrub:2
   }
-},"a")
-gsap.to("#page4",{
+},"a").to("#page4",{
   backgroundColor: "#16A850",
   scrollTrigger:{
     start: 'top center',
@@ -164,11 +163,11 @@ gsap.to("#page4",{
     scrub: true,
     scroller:".main",
       trigger:"#page4",
-      scrub:2
+
   }
 },"a")
 gsap.to("#page4>#scroller",{
-  transform:"translateX(-60%)",
+  x:"-60%",
   duration: 20,
   scrollTrigger:{
       start:"top 0%",
@@ -177,6 +176,138 @@ gsap.to("#page4>#scroller",{
       scroller:".main",
       // markers:true,
       pin:true,
-      scrub:2
+      scrub:true
   }
 })
+
+
+
+$('.slider__container').each(function(i){
+  var $this = $(this);
+  var $slides = $('.slider__items',this);
+  var currentSlide = 1;
+  var activeSlidesLength = 0;
+  var slidePositions = {};
+  var totalSlides = 0;
+  var trackStart = 0;
+  var lastSlideWidth = 0;
+  var interval = null;
+  var sliderSpeed = 3000; //ms for slide to scroll
+  var tweenNext = '';
+  var tweenPrev = '';
+  var backClicked = false;
+  var autoAdvance = true;
+  $slides.on('init',function(e,slick){
+    var $track = $('.slick-track',$this);
+    function setSizeVars() {
+      activeSlidesLength = 0;
+      trackStart = $('.slick-slide',$this).first().outerWidth();
+      slidePositions[1] = trackStart;
+      $('.slick-slide:not(.slick-cloned)',$this).each(function(i){
+        var width = $(this).outerWidth();
+        activeSlidesLength += width;
+        slidePositions[i + 2] = trackStart + activeSlidesLength;
+        lastSlideWidth = width;
+        totalSlides = i + 2;
+      });
+    };
+    setSizeVars();
+    $(window).on('resize',function(){
+      setSizeVars();
+    });
+    $track.css({'transform':'translate(-'+slidePositions[currentSlide]+'px,0,0)'});
+    function goToNextSlide(transitionTime,transitionEasing) {
+      if (currentSlide == totalSlides - 1) { // Go to first cloned slide if reached end
+        var nextSlide = currentSlide + 1;
+        tweenNext = TweenLite.to($track, 0,{
+          x:-(slidePositions[1] - lastSlideWidth),
+          ease: Power0.easeNone,
+          onComplete: function(){
+            currentSlide = nextSlide;
+            goToNextSlide(transitionTime,transitionEasing);
+          }
+        });
+      } else {
+        var nextSlide = (currentSlide == totalSlides ? 1 : currentSlide + 1);
+        tweenNext = TweenLite.to($track, transitionTime,{
+          x:-(slidePositions[nextSlide]),
+          ease: transitionEasing,
+          onComplete: function(){
+            currentSlide = nextSlide;
+            if (autoAdvance) {
+              goToNextSlide(sliderSpeed/1000, Power0.easeNone);
+            }
+          }
+        });
+      }
+    }
+    function goToPrevSlide(transitionTime,transitionEasing) {
+      backClicked = true;
+      if (currentSlide == totalSlides) {//Go to last Slide
+        var prevSlide = currentSlide - 1;
+        tweenPrev = TweenLite.to($track, 0,{
+          x:-(slidePositions[prevSlide]),
+          ease: Power0.easeNone,
+          onComplete: function(){
+            currentSlide = prevSlide;
+            goToPrevSlide(transitionTime,transitionEasing);
+          }
+        });
+      } else if (currentSlide == 1) {//Go to cloned slide instead of last slide
+        var prevSlide = totalSlides;
+        tweenPrev = TweenLite.to($track, transitionTime,{
+          x:-(slidePositions[1] - lastSlideWidth),
+          ease: transitionEasing,
+          onComplete: function(){
+            currentSlide = prevSlide;
+          }
+        });
+      } else {
+        var prevSlide = currentSlide - 1;
+        tweenPrev = TweenLite.to($track, transitionTime,{
+          x:-(slidePositions[prevSlide]),
+          ease: transitionEasing,
+          onComplete: function(){
+            currentSlide = prevSlide;
+          }
+        });
+      }
+    }
+    setTimeout(function(){
+      goToNextSlide(sliderSpeed/1000, Power0.easeNone);
+    },1000);
+    $this.hover(function() {
+      tweenNext.pause();
+    },function() {
+      if (backClicked) {
+        goToNextSlide(sliderSpeed/1000, Power0.easeNone);
+      } else {
+        tweenNext.play();
+      }
+      autoAdvance = true;
+      backClicked = false;
+    });
+    $('.slider-prev',$this).on('click',function(){
+      if (backClicked) {
+        goToPrevSlide(0.2, Power1.easeInOut);
+      } else {
+        tweenNext.reverse().timeScale(6);
+      }
+      backClicked = true;
+      autoAdvance = false;
+    });
+    $('.slider-next',$this).on('click',function(){
+      goToNextSlide(0.2, Power1.easeInOut);
+      autoAdvance = false;
+    });
+  });
+  $slides.slick({
+    infinite: true,
+    variableWidth: true,
+    arrows:false,
+    accessibility:false,
+    draggable:false,
+    swipe:false,
+    touchMove:false,
+  });
+});
