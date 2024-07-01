@@ -142,15 +142,37 @@ tl.to("#page3 p>span", {
   stagger: 0.1,
   duration:0.5
 })
-.to("#page4",{
-  backgroundColor: "#16A850",
-})
 
-gsap.to("#page4>#scroller",{
-  transform:"translateX(-62%)",
+
+gsap.from("#page4>#scroller h1",{
+  y: 200,
+  opacity:0,
   scrollTrigger:{
-      start:"top 5%",
-      end:"top -10%",
+    start: 'top center',
+    end: 'bottom bottom', 
+    scrub: true,
+    scroller:".main",
+      trigger:"#page4",
+      scrub:2
+  }
+},"a")
+gsap.to("#page4",{
+  backgroundColor: "#16A850",
+  scrollTrigger:{
+    start: 'top center',
+    end: 'bottom bottom', 
+    scrub: true,
+    scroller:".main",
+      trigger:"#page4",
+      scrub:2
+  }
+},"a")
+gsap.to("#page4>#scroller",{
+  transform:"translateX(-60%)",
+  duration: 20,
+  scrollTrigger:{
+      start:"top 0%",
+      end:"top -100%",
       trigger:"#page4",
       scroller:".main",
       // markers:true,
