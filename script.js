@@ -33,8 +33,9 @@ ScrollTrigger.scrollerProxy(".main", {
 };
 loco()
 
+
 gsap.to("#pizza-pan img", {
-  rotation: 200, // Rotate 360 degrees
+  rotation: 250, // Rotate 360 degrees
   ease: 'none', // Linear easing
   scrollTrigger: {
     trigger: "#pizza-pan",
@@ -46,13 +47,13 @@ gsap.to("#pizza-pan img", {
   }
 });
 gsap.to("#page1", {
-  borderBottomLeftRadius: "70%", // Rotate 360 degrees
-  borderBottomRightRadius: "70%", // Rotate 360 degrees
+  borderBottomLeftRadius: "50%", // Rotate 360 degrees
+  borderBottomRightRadius: "50%", // Rotate 360 degrees
   ease: 'none', // Linear easing
   scrollTrigger: {
-    trigger: "#pizza-pan",
+    trigger: "#pizza-pan img",
     start: 'top center',
-    end: 'bottom center', 
+    end: 'bottom top', 
     scrub: true,
     scroller:".main",
     // markers: true,
@@ -179,6 +180,17 @@ gsap.to("#page4>#scroller",{
       scrub:true
   }
 })
+gsap.to("#page5",{
+  backgroundColor: " #F2F2F2",
+  scrollTrigger:{
+    start: 'top top',
+    end: 'bottom top', 
+    scrub: true,
+    scroller:".main",
+      trigger:"#page5",
+
+  }
+},"a")
 
 
 
