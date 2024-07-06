@@ -128,7 +128,7 @@ var tl = gsap.timeline({
       end: "top -50%",
       pin: true,
       scrub: .2,
-      markers: true,
+      // markers: true,
       onUpdate: function() {
         console.log("Scrolling animation for #page4b updated");
     },

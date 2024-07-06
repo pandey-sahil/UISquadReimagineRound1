@@ -313,7 +313,7 @@ nav{
     background-color: #00572D;
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: space-around;
     color: #fff;
 }
@@ -373,30 +373,28 @@ nav{
     border-radius: 50%;
     transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.8s;
 }
-#footer .parts:nth-child(4) #icons i:nth-child(1):hover{
+#footer .parts:nth-child(4) #icons i:hover{
     color: #fff;
+}
+#footer .parts:nth-child(4) #icons i:nth-child(1):hover{
     background-color: #1773EA;
-    border: 0.05rem solid #1773EA;
+    border-color: #1773EA;
 }
 #footer .parts:nth-child(4) #icons i:nth-child(2):hover{
-    color: #fff;
     background-color: #F702AA;
-    border: 0.05rem solid #F702AA;
+    border-color: #F702AA;
 }
 #footer .parts:nth-child(4) #icons i:nth-child(3):hover{
-    color: #fff;
     background-color: #F70000;
-    border: 0.05rem solid #F70000;
+    border-color: #F70000;
 }
 #footer .parts:nth-child(4) #icons i:nth-child(4):hover{
-    color: #fff;
     background-color: #DF0022;
-    border: 0.05rem solid #DF0022;
+    border-color: #DF0022;
 }
 #footer .parts:nth-child(4) #icons i:nth-child(5):hover{
-    color: #fff;
     background-color: #000;
-    border: 0.05rem solid #000;
+    border-color: #000;
 }
 
 
