@@ -308,6 +308,97 @@ nav{
     background: #000;
 }
 
+#footer{
+    padding: 1rem;
+    background-color: #00572D;
+    height: 14rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #fff;
+}
+#footer .parts{
+    height: 100%;
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+#footer .parts h5{
+    font-weight: 500;
+    font-size: 1.7vh;
+}
+#footer .parts hr{
+    width: 4rem;
+    margin-bottom: 0.7rem;
+}
+#footer .parts:nth-child(1) a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.75rem;
+    opacity: 0.85;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+}
+#footer .parts:nth-child(1) a:hover{
+    opacity: 1;
+    scale: 1.02;
+}
+#footer .parts:nth-child(2) img{
+    width: 3.4rem;
+    margin: 0.1rem;
+}
+#footer .parts:nth-child(3){
+    font-size:  0.9rem;
+    font-weight: 300;
+}
+#footer .parts:nth-child(3) a{
+    color: #fff;
+    font-size:  0.8rem;
+}
+#footer .parts:nth-child(3) a i{
+    opacity: 0.8;
+}
+#footer .parts:nth-child(4) #icons{
+    font-size: 1.6rem;
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+#footer .parts:nth-child(4) #icons i{
+    padding: 0.2rem;
+    color: #00572D;
+    background-color: #fff;
+    border: 0.05rem solid #fff;
+    border-radius: 50%;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.8s;
+}
+#footer .parts:nth-child(4) #icons i:nth-child(1):hover{
+    color: #fff;
+    background-color: #1773EA;
+    border: 0.05rem solid #1773EA;
+}
+#footer .parts:nth-child(4) #icons i:nth-child(2):hover{
+    color: #fff;
+    background-color: #F702AA;
+    border: 0.05rem solid #F702AA;
+}
+#footer .parts:nth-child(4) #icons i:nth-child(3):hover{
+    color: #fff;
+    background-color: #F70000;
+    border: 0.05rem solid #F70000;
+}
+#footer .parts:nth-child(4) #icons i:nth-child(4):hover{
+    color: #fff;
+    background-color: #DF0022;
+    border: 0.05rem solid #DF0022;
+}
+#footer .parts:nth-child(4) #icons i:nth-child(5):hover{
+    color: #fff;
+    background-color: #000;
+    border: 0.05rem solid #000;
+}
 
 
 
