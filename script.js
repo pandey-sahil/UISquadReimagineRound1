@@ -39,8 +39,8 @@ gsap.to("#pizza-pan img", {
   ease: 'none', // Linear easing
   scrollTrigger: {
     trigger: "#pizza-pan",
-    start: 'top center',
-    end: 'bottom center', 
+    start: 'top bottom',
+    end: 'bottom top', 
     scrub: true,
     scroller:".main",
     // markers: true,
