@@ -73,6 +73,27 @@ gsap.from("#page2 p", {
   }
 });
 
+function page2Slider(){
+  document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelector('.slides');
+    const slideCount = slides.children.length;
+
+    // Clone slides for infinite effect
+    for (let i = 0; i < slideCount; i++) {
+        const clone = slides.children[i].cloneNode(true);
+        slides.appendChild(clone);
+    }
+
+    // Calculate the width of all slides combined
+    const slideWidth = slides.children[0].offsetWidth;
+    const totalWidth = slideWidth * slides.children.length;
+    slides.style.width = `${totalWidth}px`;
+});
+
+}
+// 
+page2Slider();
+
 
 var clutter = ""
 var pText = document.querySelector("#page3 p").textContent
