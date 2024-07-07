@@ -12,6 +12,7 @@
     user-select: none;
     box-sizing: border-box;
     position: relative;
+    cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🍕</text></svg>") 16 0,auto;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -25,7 +26,42 @@ body {
 .main {
     width: 100%;
     overflow-x: hidden;
+        /* background-color: #685454; */
+ /*!emojicursor.app*/
+        /* cursor: ; */
 }
+#loader{
+    height: 100vh;
+    position: absolute;
+    z-index: 99;
+    background: #16A850;
+    width: 100vw;
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    
+   }
+   
+   .ingredient {
+       opacity: 0
+   }
+   
+   
+  .circle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    pointer-events: none;
+  }
 nav{
     background-color: #d8d7d7;
 }
@@ -142,47 +178,146 @@ nav{
     width: 100vw;
     height: 80vh;
     overflow: hidden;
-    border: 2px solid #ddd;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* border: 2px solid #ddd; */
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
 }
 
 #page2 .slides {
     display: flex;
     height: 100%;
-    animation: slide 12s linear infinite;
+    animation: marquee 20s linear infinite;
+    align-items: center;
+    /* justify-content: center; */
 }
 
 #page2 .slide {
-    min-width: calc(100% / 6);
+    min-width: calc(100% / 5);
     display: inline-block;
     gap: 6vh;
     border: 1px solid black;
+    padding: 2vh;
+
 }
 #page2 .slide .img-container{
     width: 100%;
-    height: 50%;
+    /* height: 50%; */
     position: relative;
     object-fit: cover;
     overflow: hidden;
+    padding: 2vh;
+
 
 }
 
 #page2 .slide img {
     width: 100%;
-    height: 6rem;
+    /* height: 6rem; */
     height: auto;
     display: block;
-    padding: 2vh;
+}
+#page2 .slide h2{
+    font-weight: 700;
+    margin-top: 2vw;
+    font-size: 2vw;
+}
+#page2 .slide p{
+    font-weight: 500;
+    /* margin-top: 2vw; */
+    font-size: 1.2vw;
 }
 
-/* @keyframes slide {
+#page2 .slide:hover{
+    .cta{
+        /* display: i; */
+        opacity: 1;
+        display: flex;
+    }
+}
+
+.cta {
+    margin-top: 1vw;
+    display: none;
+    opacity: 0;
+    padding: 11px 33px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2vw;
+    font-weight: 800;
+    color: white;
+    background: #16A850;
+    transition: 1s;
+    box-shadow: 6px 6px 0 black;
+    transform: skewX(-15deg);
+    border: none;
+  }
+  
+  .cta:focus {
+    outline: none;
+  }
+  
+  .cta:hover {
+    transition: 0.5s;
+    box-shadow: 10px 10px 0 #EC2028;
+  }
+  
+  .cta .second {
+    transition: 0.5s;
+    margin-right: 0px;
+  }
+  
+  .cta:hover  .second {
+    transition: 0.5s;
+    margin-right: 45px;
+  }
+  
+  .span {
+    transform: skewX(15deg)
+  }
+  
+  .second {
+    width: 20px;
+    margin-left: 30px;
+    position: relative;
+    top: 12%;
+  }
+  
+  .one {
+    transition: 0.4s;
+    transform: translateX(-60%);
+  }
+  
+  .two {
+    transition: 0.5s;
+    transform: translateX(-30%);
+  }
+  
+  .cta:hover .three {
+    animation: color_anim 1s infinite 0.2s;
+  }
+  
+  .cta:hover .one {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.6s;
+  }
+  
+  .cta:hover .two {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.4s;
+  }
+  
+  @keyframes color_anim {
     0% {
-        transform: translateX(0%);
+      fill: white;
     }
+  
+    50% {
+      fill: #EC2028;
+    }
+  
     100% {
-        transform: translateX(-100%);
+      fill: white;
     }
-} */
+  }
 
 
 #page3 {
@@ -577,16 +712,94 @@ nav {
 #page2 {
     height: 120vh;
     width: 100vw;
-    text-align: center;
+    /* text-align: center; */
     padding-top: 12rem; /* 12vw converted to rem */
 }
 
 #page2 h1 {
     color: #16A850;
-    font-size: 10rem; /* 12vw converted to rem */
+    font-size: 12vw;
     font-family: "Bebas Neue", sans-serif;
-    line-height: 1;
 }
+
+
+
+#page2 {
+    width: 100vw;
+    /* text-align: center; */
+    padding-top: 20vw;
+    display: flex;
+    flex-direction: column;
+}
+
+#page2 h1 {
+    color: #16A850;
+    font-size: 19vw;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+
+#page2 .slider {
+    width: 100vw;
+    height: 80vh;
+    overflow: hidden;
+    /* border: 2px solid #ddd; */
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+}
+
+#page2 .slides {
+    display: flex;
+    height: 100%;
+    /* animation: marquee 20s linear infinite; */
+    align-items: center;
+    /* justify-content: center; */
+}
+
+#page2 .slide {
+    min-width: calc(100% / 4);
+    display: inline-block;
+    gap: 6vh;
+    border: 1px solid black;
+    padding: 2vh;
+
+}
+#page2 .slide .img-container{
+    width: 100%;
+    /* height: 50%; */
+    position: relative;
+    object-fit: cover;
+    overflow: hidden;
+    padding: 2vh;
+
+
+}
+
+#page2 .slide img {
+    width: 100%;
+    /* height: 6rem; */
+    height: auto;
+    display: block;
+}
+#page2 .slide h2{
+    font-weight: 700;
+    margin-top: 2vw;
+    font-size: 2vw;
+}
+#page2 .slide p{
+    font-weight: 500;
+    /* margin-top: 2vw; */
+    font-size: 1.2vw;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
 
 /* Page 3 */
 #page3 {
@@ -778,20 +991,45 @@ flex-direction: column;
 
 /* Page 6 */
  #page6 {
-    height: 100vh;
+    height: auto;
     width: 100%;
     
+}
+#pg6-img-cont{
+    height: 200px;
+}
+#pg6-img-cont:nth-child(2){
+    height: 200px;
+}
+#pg6-img-cont:nth-child(3){
+    height: 200px;
+}
+#pg6-img-cont{
+    height: 200px;
 }
 #page7 {
     height: 100vh;
     width: 100%;
     
 } 
-
+#vacant{
+    height: 0;
+    width: 0;
+    display: none;
+}
+#pagecontainer{
+    height: 0;
+    width: 0;
+    display: none;
+}
 }
 
 
 #pagecontainer{
+    height: 100vh;
+    width: 100vw;
+}
+#vacant{
     height: 100vh;
     width: 100vw;
 }
